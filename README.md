@@ -1,4 +1,20 @@
-# TesteElotech
+# Projeto Angular
+
+Este repositório contém um projeto Angular
+
+## Tecnologias/libs
+
+> Angular 11
+
+> https://www.npmjs.com/package/ngx-loading
+
+> https://github.com/ngx-translate/core
+
+> https://jsdaddy.github.io/ngx-mask-page/main#valid
+
+> Angular Material
+
+> Bootstrap
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 11.2.5.
 
