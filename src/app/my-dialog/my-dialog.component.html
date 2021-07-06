@@ -1,0 +1,7 @@
+<h1 mat-dialog-title [style.color]="'green'">{{data.title}}</h1>
+<div mat-dialog-content>{{data.description}}</div>
+<div mat-dialog-actions>
+  <button mat-button mat-dialog-close [style.background-color]="'green'" [style.color]="'white'" (click)="data.fnc(data.id)">{{ 'general.yes' | translate }}</button>
+  <button mat-button mat-dialog-close>{{ 'general.no' | translate }}</button>
+</div>
+

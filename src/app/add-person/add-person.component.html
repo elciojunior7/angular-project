@@ -1,0 +1,60 @@
+<div class="container-fluid">
+
+    <elo-header></elo-header>
+
+    <br/>
+    <div class="text-center">
+        <i-bs name="person-fill"
+            width="100" height="100">
+        </i-bs> 
+        <h1>{{ 'general.people' | translate }}</h1>
+    </div>
+
+    <div fxLayout='column' fxLayoutAlign="center center" > 
+        <button mat-raised-button color="secondary" style="font-size: 100%; width: 30%; margin:5% 0" (click)="save()">{{ 'general.contacts' | translate }}</button>
+    </div>
+
+    <p  fxLayout='column' fxLayoutAlign="center center" class="text-success" *ngIf="isSaveOk">Pessoa salva com sucesso</p>
+    <p  fxLayout='column' fxLayoutAlign="center center" class="text-danger" *ngIf="errorMsg">{{ errorMsg }}</p>
+
+    <form [formGroup]="formSave">
+
+        <div class="box-form">
+            <div class="box-form-box" fxLayout='column'>
+                <mat-form-field appearance="standard"  >
+                    <mat-label>{{ 'general.name' | translate }}</mat-label>
+                    <input matInput placeholder="Nome" formControlName="name">
+                    <mat-hint *ngIf="name.touched && name?.errors?.required" class="text-danger">{{ "general.required_field" | translate }}</mat-hint>
+                </mat-form-field>
+
+                <mat-form-field appearance="standard" >
+                    <mat-label>{{ 'general.cpf' | translate }}</mat-label>
+                    <input matInput placeholder="CPF" formControlName="cpf" mask="000.000.000-00" [clearIfNotMatch]=true>
+                    <mat-hint *ngIf="cpf.touched && cpf?.errors?.required" class="text-danger">{{ "general.required_field" | translate }}</mat-hint>
+                </mat-form-field>
+
+                <mat-form-field class="form-date" appearance="fill" >
+                    <mat-label>{{ 'general.birthdate' | translate }}</mat-label>
+                    <input matInput [max]="maxDate" [matDatepicker]="startPicker" formControlName="birthDate">
+                    <mat-datepicker-toggle matSuffix [for]="startPicker"></mat-datepicker-toggle>
+                    <mat-datepicker #startPicker></mat-datepicker>
+                    <mat-hint *ngIf="birthDate.touched && birthDate?.errors?.required" class="text-danger">{{ "general.required_field" | translate }}</mat-hint>
+                </mat-form-field>  
+
+                <div fxLayout='column' fxLayoutAlign="center center" > 
+                    <button mat-raised-button color="primary" style="font-size: 120%; width: 30%; margin:5% 0" (click)="save()">{{ 'general.save' | translate }}</button>
+                </div>
+            </div>
+        </div>
+    
+    </form>
+    <br/>
+
+    <mat-divider></mat-divider>
+
+    <elo-footer></elo-footer>
+
+</div>
+
+<ngx-loading [show]="loading"></ngx-loading>
+

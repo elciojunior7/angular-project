@@ -1,0 +1,23 @@
+{
+    "general": {
+        "title": "Projeto - Teste Elotech",
+        "name": "Nome",
+        "cpf": "CPF",
+        "birthdate": "Data de Nascimento",
+        "birthdate_2": "Nascido em",
+        "begin": "Início",
+        "end": "Fim",
+        "actions": "Ações",
+        "select_one_person": "Clique em uma linha da tabela para editar a pessoa escolhida",
+        "yes": "Sim",
+        "no": "Não",
+        "company_name": "Elotech Gestão Pública",
+        "add_person": "Adicionar Pessoa",
+        "people": "Pessoas",
+        "person": "Pessoa",
+        "search": "Pesquisar",
+        "save": "Salvar",
+        "contacts": "Contatos",
+        "required_field": "Campo Obrigatório"
+    }
+}

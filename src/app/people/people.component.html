@@ -1,0 +1,68 @@
+<div class="container-fluid">
+
+    <elo-header></elo-header>
+
+    <br/>
+    <div class="text-center">
+        <i-bs name="person-fill"
+            width="100" height="100">
+        </i-bs> 
+        <h1>{{ 'general.people' | translate }}</h1>
+    </div>
+
+    <form [formGroup]="formFilter">
+
+        <div fxLayout='row' fxLayout.lt-md='column' fxLayoutAlign="space-around center" style="min-height: 200px">
+            <mat-form-field appearance="standard" >
+                <mat-label>{{ 'general.name' | translate }}</mat-label>
+                <input matInput placeholder="Nome" formControlName="name">
+            </mat-form-field>
+
+            <mat-form-field appearance="standard" >
+                <mat-label>{{ 'general.cpf' | translate }}</mat-label>
+                <input matInput placeholder="CPF" formControlName="cpf">
+            </mat-form-field> 
+
+            <button mat-raised-button color="primary" (click)="search()">{{ 'general.search' | translate }}</button>
+        </div>
+    
+    </form>
+    <br/>
+
+    <p class="d-flex justify-content-end">{{ 'general.select_one_person' | translate }}
+
+    <section style="min-height:300px">
+        <table class="table table-responsive-sm table-hover text-center">
+            <thead class="thead-dark">
+                <tr>
+                <th scope="col">{{ 'general.name' | translate }}</th>
+                <th scope="col">{{ 'general.cpf' | translate }}</th>
+                <th scope="col">{{ 'general.birthdate_2' | translate }}</th>
+                <th scope="col">{{ 'general.actions' | translate }}</th>
+                </tr>
+                </thead>
+            <tbody>
+            <tr *ngFor="let person of people">
+              <td (click)="edit(person.id)">{{ person.name }}</td>
+              <td (click)="edit(person.id)">{{ person.cpf }}</td>
+              <td (click)="edit(person.id)">{{ person.name }}</td>
+              <td (click)="prepareToRemove(person.id, person.name)">
+                <i-bs class="text-danger" name="trash-fill"
+                    width="30" height="30">
+                </i-bs>
+              </td>
+            </tr>
+            </tbody>
+          </table>
+          
+            <ngb-pagination class="d-flex justify-content-center" [collectionSize]="collectionSize" [(page)]="page" [pageSize]="pageSize" (pageChange)="search()">
+            </ngb-pagination>
+    </section>
+
+    <mat-divider></mat-divider>
+
+    <elo-footer></elo-footer>
+
+</div>
+
+<ngx-loading [show]="loading"></ngx-loading>
